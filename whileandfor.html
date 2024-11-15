@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML & JS</title>
+</head>
+<body>
+    <p> This uses a while loop</p>
+    <p>Enter value </p>
+    <input id="numIn1">
+    
+    <button onclick="iterateNumWhileLoop()">
+        Iterate using while loop 
+    </button>
+
+    <br>
+    <p>Stops at ...</p>
+    <textarea id="iterationBox1">  -  </textarea>
+
+    <p> This uses a for loop</p>
+    <p>Enter value </p>
+    <input id="numIn2">
+    
+    <button onclick="iterateWithForLoop()">
+        Iterate using For loop
+    </button>
+
+    <br>
+    <p>Stops at ...</p>
+    <textarea id="iterationBox2">  -  </textarea>
+
+    <script>
+
+        function iterateNumWhileLoop(){
+        var num = parseInt(document.getElementById("numIn1").value);
+        var counter = 0;
+        while(counter <num) {
+             // write the current value to the output box (overwrites)
+            document.getElementById("iterationBox1").innerHTML = counter;
+            console.log(counter);
+            counter += 1;
+        }
+    }
+
+
+    function iterateWithForLoop(){
+        var num = parseInt(document.getElementById("numIn2").value);
+        var counter = 0;
+        // Note the structure of a for statememt 
+        // initialise, end condition, increment
+        for (let counter=0; counter<num; counter++){
+            console.log(counter);
+            // write the current value to the output box (overwrites)
+            document.getElementById("iterationBox2").innerHTML = counter;
+        }
+    }
+
+    </script>
+</body>
+</html>
