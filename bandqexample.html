@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Demo</title>
+</head>
+<body>
+    <h1>Welcome to my graph demo</h1>
+    <p>Enter a height to add to the data</p>
+    <br>
+    <input id="hIn" placeholder="Heights">  
+    <br>
+    <button onclick="addData()"> Add Data to List </button>
+    <div id="plotlyGraph" style="width:90%"></div>
+
+    <br>
+    <button onclick="showFixedList()"> One I prepared earlier </button>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+    <script> 
+    var myHeights=[];
+    var hEle=document.getElementById("hIn");
+
+    function addData(){
+        myHeights.push(hEle.value);
+        drawPlotly();
+    }
+
+    function showFixedList(){
+        myHeights=[165,145,167,45,156,230,178,190];
+        drawPlotly();
+    }
+    function drawPlotly(){
+        // data
+        var heights={
+            y: myHeights,
+            name: "Height",
+            mode: 'lines+markers'
+        };
+        // Graph labels
+        var layout={
+            title: 'Students heights',
+            xaxis: {title: 'Each student'},
+            yaxis: {title: 'height(m)'}
+        };
+        var data=[heights];
+        //Draw graph in the div section named above in the HTML
+        //Note 'plotlyGraph' is a keyword
+        Plotly.newPlot('plotlyGraph', data, layout);
+
+    }
+    </script>
+
+</body>
+</html>
+
