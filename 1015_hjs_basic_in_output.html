@@ -1,0 +1,46 @@
+<!-- Demo of input/output using the Document Object Model (DOM) and function calls in javascript
+G Hennessy CUS -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Name Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Your Name</h2>
+  <!-- Input fields : note the id which is used in the javascript below-->
+  <label for="firstName">First Name:</label><br>
+  <input type="text" id="firstName"><br>
+
+  <label for="famName">Family Name:</label><br>
+  <input type="text" id="famName"><br>
+  <!-- Clicking the Submit button calls the function -->
+  <button onclick="readWritetoHTML()">Submit</button>
+  <!-- Output field : note the id which is used in the javascript below-->
+  <p id="myOutput"></p>
+
+  <script>
+    // Now this is javascript - note a different notation for comments
+    // This is the function called when the submit button was clicked
+    function readWritetoHTML() {
+      const firstName = document.getElementById('firstName').value;
+      const famName = document.getElementById('famName').value;
+      // Build up a new string from the two inputs
+      let result = "Your full name is " + firstName + " " + famName;
+      // Output the new string in the correct position
+      document.getElementById('myOutput').innerText = result;
+    }
+  </script>
+
+</body>
+</html>
